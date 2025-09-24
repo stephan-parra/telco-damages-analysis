@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excavation Damage Analysis & Prediction Framework</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: #2980b9;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .executive-summary {
+            background: #ecf0f1;
+            padding: 25px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            border-left: 4px solid #27ae60;
+        }
+
+        .key-findings {
+            background: #e8f6f3;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .risk-level {
+            background: #fff5f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .low-risk {
+            background: #f0fff4;
+            border-left-color: #27ae60;
+        }
+
+        .metrics-box {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        strong {
+            color: #2c3e50;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .stat {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #2980b9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Excavation Damage Analysis &amp; Prediction Framework</h1>
+
+        <div class="executive-summary">
+            <h2>Executive Summary</h2>
+
+            <p><strong>Dataset Overview:</strong></p>
+            <ul>
+                <li><span class="stat">188,562 excavation enquiries</span> over 12 months (Nov 2021 - Oct 2022)</li>
+                <li><span class="stat">3,193 actual damages</span> occurred (1.69% overall damage rate)</li>
+                <li><span class="stat">$3.5M+ total repair costs</span> across all damages</li>
+                <li>Comprehensive data including work types, companies, dates, and locations</li>
+            </ul>
+
+            <div class="key-findings">
+                <p><strong>Key Findings:</strong></p>
+                <ul>
+                    <li>Predictive model achieves <span class="highlight">66.6% AUC</span> for damage prediction</li>
+                    <li>Risk segmentation successfully identifies high-risk scenarios (3.4% damage rate vs 0% for low-risk)</li>
+                    <li>Company performance is the strongest predictor (45% feature importance)</li>
+                    <li>Significant variation in risk across work types (0.11% to 5.71% damage rates)</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>Critical Risk Factors Identified</h2>
+
+        <h3>1. Work Type Risk Analysis</h3>
+
+        <div class="risk-level">
+            <strong>Highest Risk Activities:</strong>
+            <ol>
+                <li><strong>Blasting</strong> - 5.71% damage rate (105 jobs, 6 damages)</li>
+                <li><strong>Deep Ripping</strong> - 3.92% damage rate (1,325 jobs, 52 damages)</li>
+                <li><strong>Major Earthworks Cutting/Filling</strong> - 3.30% damage rate (10,266 jobs, 339 damages)</li>
+                <li><strong>Pot Holing</strong> - 2.90% damage rate (8,859 jobs, 257 damages)</li>
+            </ol>
+        </div>
+
+        <div class="risk-level low-risk">
+            <strong>Lower Risk Activities:</strong>
+            <ul>
+                <li>Hand Digging - 1.24% damage rate</li>
+                <li>Installing Cabinets/Pedestals - 1.10% damage rate</li>
+                <li>Directional Drilling - 1.50% damage rate</li>
+            </ul>
+        </div>
+
+        <h3>2. Company Performance Analysis</h3>
+
+        <div class="risk-level">
+            <strong>High-Risk Companies (&gt;15% damage rate):</strong>
+            <ul>
+                <li>Chxxxxr Consultants Limited: 27.1% damage rate (59 jobs)</li>
+                <li>Baxxxxe Consultants Limited: 26.4% damage rate (53 jobs)</li>
+                <li>Fxxxxer Construction: 26.2% damage rate (61 jobs)</li>
+            </ul>
+        </div>
+
+        <div class="risk-level low-risk">
+            <strong>Best Performing Large Companies (&lt;3% damage rate):</strong>
+            <ul>
+                <li>Major contractors with consistent low damage rates</li>
+                <li>Companies with strong safety protocols and experience</li>
+            </ul>
+        </div>
+
+        <h3>3. Temporal Risk Patterns</h3>
+
+        <div class="metrics-box">
+            <strong>Seasonal Trends:</strong>
+            <ul>
+                <li><strong>Highest risk months:</strong> March (2.15%), April (1.96%), January (1.83%)</li>
+                <li><strong>Lowest risk months:</strong> September (1.33%), October (1.39%), August (1.44%)</li>
+            </ul>
+
+            <strong>Weekly Patterns:</strong>
+            <ul>
+                <li>Weekend work shows lower damage rates (1.11% Saturday, 1.81% Sunday)</li>
+                <li>Mid-week consistency around 1.6-1.8% damage rate</li>
+            </ul>
+
+            <strong>Duration Impact:</strong>
+            <ul>
+                <li><strong>Very long projects (1+ years):</strong> 7.46% damage rate</li>
+                <li><strong>Same day jobs:</strong> 1.51% damage rate</li>
+                <li><strong>2-4 week projects:</strong> 1.78% damage rate</li>
+            </ul>
+
+            <strong>Lead Time Impact:</strong>
+            <ul>
+                <li><strong>Very long lead times (1+ years):</strong> 11.33% damage rate</li>
+                <li><strong>Emergency work:</strong> 2.00% damage rate</li>
+                <li><strong>Standard lead times (1-3 days):</strong> ~1.7% damage rate</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>Predictive Model Performance</h2>
+
+        <div class="metrics-box">
+            <h3>Model Metrics:</h3>
+            <ul>
+                <li><strong>AUC Score:</strong> 0.666 (Good discrimination)</li>
+                <li><strong>Accuracy:</strong> 94.4% (High overall accuracy)</li>
+                <li><strong>Feature Importance Rankings:</strong>
+                    <ol>
+                        <li>Company Risk Score (45%)</li>
+                        <li>Job Duration (18%)</li>
+                        <li>Lead Time (10%)</li>
+                        <li>Work Type Risk Score (10%)</li>
+                        <li>Day of Week (9%)</li>
+                        <li>Month (8%)</li>
+                    </ol>
+                </li>
+            </ul>
+
+            <h3>Risk Segmentation Validation:</h3>
+            <ul>
+                <li><strong>High Risk (&gt;60 score):</strong> 3.4% actual damage rate</li>
+                <li><strong>Medium Risk (40-60):</strong> 1.4% actual damage rate</li>
+                <li><strong>Low Risk (&lt;40):</strong> 0.0% actual damage rate</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="footer">
+            <p>This framework provides a comprehensive approach to predicting and preventing excavation damages while maintaining operational efficiency.</p>
+        </div>
+    </div>
+</body>
+</html>
