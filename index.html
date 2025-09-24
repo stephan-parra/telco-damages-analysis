@@ -3,273 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excavation Damage Analysis & Prediction Framework</title>
+    <title>Excavation Damage Analysis Reports</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
             line-height: 1.6;
             color: #333;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
             background-color: #f8f9fa;
         }
 
         .container {
             background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            color: #34495e;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            border-left: 4px solid #3498db;
-            padding-left: 15px;
-        }
-
-        h3 {
-            color: #2980b9;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .executive-summary {
-            background: #ecf0f1;
-            padding: 25px;
-            border-radius: 6px;
-            margin-bottom: 30px;
-            border-left: 4px solid #27ae60;
-        }
-
-        .key-findings {
-            background: #e8f6f3;
-            padding: 20px;
-            border-radius: 6px;
-            margin: 20px 0;
-        }
-
-        .risk-level {
-            background: #fff5f5;
-            padding: 15px;
-            border-radius: 6px;
-            margin: 10px 0;
-            border-left: 4px solid #e74c3c;
-        }
-
-        .low-risk {
-            background: #f0fff4;
-            border-left-color: #27ae60;
-        }
-
-        .metrics-box {
-            background: #f8f9ff;
-            padding: 20px;
-            border-radius: 6px;
-            margin: 20px 0;
-            border: 1px solid #ddd;
-        }
-
-        ul, ol {
-            margin: 15px 0;
-            padding-left: 25px;
-        }
-
-        li {
-            margin: 8px 0;
-        }
-
-        strong {
-            color: #2c3e50;
-        }
-
-        .highlight {
-            background: #fff3cd;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-weight: bold;
-        }
-
-        .stat {
-            font-size: 1.1em;
-            font-weight: bold;
-            color: #2980b9;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-        }
-
-        .footer {
-            margin-top: 50px;
+            color: #1a202c;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
             text-align: center;
-            color: #7f8c8d;
+            border-bottom: 3px solid #3182ce;
+            padding-bottom: 1rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
             font-style: italic;
         }
 
-        hr {
-            border: none;
-            height: 2px;
-            background: linear-gradient(to right, #3498db, #2ecc71);
-            margin: 40px 0;
+        .reports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .report-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 2rem;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .report-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-color: #3182ce;
+        }
+
+        .report-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .report-description {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .report-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 0.5rem;
+            background: #f7fafc;
+            border-radius: 6px;
+            flex: 1;
+            margin: 0 0.25rem;
+        }
+
+        .stat-number {
+            display: block;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #3182ce;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #718096;
+            text-transform: uppercase;
+        }
+
+        .view-button {
+            display: inline-block;
+            background: #3182ce;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .view-button:hover {
+            background: #2c5aa0;
+        }
+
+        .causation-report {
+            border-left: 4px solid #e53e3e;
+        }
+
+        .damage-report {
+            border-left: 4px solid #38a169;
+        }
+
+        .key-findings {
+            background: #edf2f7;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .key-findings h4 {
+            margin: 0 0 0.5rem 0;
+            color: #2d3748;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .key-findings ul {
+            margin: 0;
+            padding-left: 1.2rem;
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+
+        .key-findings li {
+            margin-bottom: 0.25rem;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .analysis-period {
+            background: #bee3f8;
+            color: #2a69ac;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .reports-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Excavation Damage Analysis &amp; Prediction Framework</h1>
+        <h1>Excavation Damage Analysis Reports</h1>
+        <p class="subtitle">Comprehensive Analysis of New Zealand Excavation Damage Incidents</p>
 
-        <div class="executive-summary">
-            <h2>Executive Summary</h2>
+        <div class="analysis-period">
+            Analysis Period: November 2021 - October 2022 | Total Records: 188,562 enquiries with 3,193 damage incidents
+        </div>
 
-            <p><strong>Dataset Overview:</strong></p>
-            <ul>
-                <li><span class="stat">188,562 excavation enquiries</span> over 12 months (Nov 2021 - Oct 2022)</li>
-                <li><span class="stat">3,193 actual damages</span> occurred (1.69% overall damage rate)</li>
-                <li><span class="stat">$3.5M+ total repair costs</span> across all damages</li>
-                <li>Comprehensive data including work types, companies, dates, and locations</li>
-            </ul>
+        <div class="reports-grid">
+            <!-- Ticket Submitter Causation Report -->
+            <div class="report-card causation-report">
+                <div class="report-title">🔍 Ticket Submitter Causation Analysis</div>
+                <div class="report-description">
+                    Advanced analysis determining the probability that excavation ticket submitters caused the damage they reported. Uses multi-factor modeling to identify potentially fraudulent submissions.
+                </div>
 
-            <div class="key-findings">
-                <p><strong>Key Findings:</strong></p>
-                <ul>
-                    <li>Predictive model achieves <span class="highlight">66.6% AUC</span> for damage prediction</li>
-                    <li>Risk segmentation successfully identifies high-risk scenarios (3.4% damage rate vs 0% for low-risk)</li>
-                    <li>Company performance is the strongest predictor (45% feature importance)</li>
-                    <li>Significant variation in risk across work types (0.11% to 5.71% damage rates)</li>
-                </ul>
+                <div class="key-findings">
+                    <h4>Key Findings</h4>
+                    <ul>
+                        <li>45.9% of tickets submitted AFTER damage occurred</li>
+                        <li>43.4% of incidents have HIGH causation probability</li>
+                        <li>93 users with 100% after-damage submission patterns</li>
+                        <li>447 repeat offenders identified</li>
+                    </ul>
+                </div>
+
+                <div class="report-stats">
+                    <div class="stat">
+                        <span class="stat-number">1,386</span>
+                        <span class="stat-label">High Risk Cases</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">93</span>
+                        <span class="stat-label">Fraudulent Users</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">38.1%</span>
+                        <span class="stat-label">Retroactive Tickets</span>
+                    </div>
+                </div>
+
+                <a href="ticket_submitter_causation_report.md" class="view-button">View Causation Analysis Report</a>
+            </div>
+
+            <!-- Damage Analysis & Prediction Report -->
+            <div class="report-card damage-report">
+                <div class="report-title">📊 Damage Analysis & Prediction Framework</div>
+                <div class="report-description">
+                    Comprehensive risk analysis and predictive modeling framework for excavation damage prevention. Identifies high-risk work types, companies, and temporal patterns.
+                </div>
+
+                <div class="key-findings">
+                    <h4>Key Findings</h4>
+                    <ul>
+                        <li>1.69% overall damage rate across all enquiries</li>
+                        <li>Blasting has highest risk at 5.71% damage rate</li>
+                        <li>66.6% AUC predictive model accuracy</li>
+                        <li>$3.5M+ total repair costs identified</li>
+                    </ul>
+                </div>
+
+                <div class="report-stats">
+                    <div class="stat">
+                        <span class="stat-number">66.6%</span>
+                        <span class="stat-label">Model AUC</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5.71%</span>
+                        <span class="stat-label">Highest Risk Work</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">$3.5M+</span>
+                        <span class="stat-label">Total Costs</span>
+                    </div>
+                </div>
+
+                <a href="damage_analysis_report.md" class="view-button">View Damage Analysis Report</a>
             </div>
         </div>
 
-        <hr>
-
-        <h2>Critical Risk Factors Identified</h2>
-
-        <h3>1. Work Type Risk Analysis</h3>
-
-        <div class="risk-level">
-            <strong>Highest Risk Activities:</strong>
-            <ol>
-                <li><strong>Blasting</strong> - 5.71% damage rate (105 jobs, 6 damages)</li>
-                <li><strong>Deep Ripping</strong> - 3.92% damage rate (1,325 jobs, 52 damages)</li>
-                <li><strong>Major Earthworks Cutting/Filling</strong> - 3.30% damage rate (10,266 jobs, 339 damages)</li>
-                <li><strong>Pot Holing</strong> - 2.90% damage rate (8,859 jobs, 257 damages)</li>
-            </ol>
-        </div>
-
-        <div class="risk-level low-risk">
-            <strong>Lower Risk Activities:</strong>
-            <ul>
-                <li>Hand Digging - 1.24% damage rate</li>
-                <li>Installing Cabinets/Pedestals - 1.10% damage rate</li>
-                <li>Directional Drilling - 1.50% damage rate</li>
-            </ul>
-        </div>
-
-        <h3>2. Company Performance Analysis</h3>
-
-        <div class="risk-level">
-            <strong>High-Risk Companies (&gt;15% damage rate):</strong>
-            <ul>
-                <li>Chxxxxr Consultants Limited: 27.1% damage rate (59 jobs)</li>
-                <li>Baxxxxe Consultants Limited: 26.4% damage rate (53 jobs)</li>
-                <li>Fxxxxer Construction: 26.2% damage rate (61 jobs)</li>
-            </ul>
-        </div>
-
-        <div class="risk-level low-risk">
-            <strong>Best Performing Large Companies (&lt;3% damage rate):</strong>
-            <ul>
-                <li>Major contractors with consistent low damage rates</li>
-                <li>Companies with strong safety protocols and experience</li>
-            </ul>
-        </div>
-
-        <h3>3. Temporal Risk Patterns</h3>
-
-        <div class="metrics-box">
-            <strong>Seasonal Trends:</strong>
-            <ul>
-                <li><strong>Highest risk months:</strong> March (2.15%), April (1.96%), January (1.83%)</li>
-                <li><strong>Lowest risk months:</strong> September (1.33%), October (1.39%), August (1.44%)</li>
-            </ul>
-
-            <strong>Weekly Patterns:</strong>
-            <ul>
-                <li>Weekend work shows lower damage rates (1.11% Saturday, 1.81% Sunday)</li>
-                <li>Mid-week consistency around 1.6-1.8% damage rate</li>
-            </ul>
-
-            <strong>Duration Impact:</strong>
-            <ul>
-                <li><strong>Very long projects (1+ years):</strong> 7.46% damage rate</li>
-                <li><strong>Same day jobs:</strong> 1.51% damage rate</li>
-                <li><strong>2-4 week projects:</strong> 1.78% damage rate</li>
-            </ul>
-
-            <strong>Lead Time Impact:</strong>
-            <ul>
-                <li><strong>Very long lead times (1+ years):</strong> 11.33% damage rate</li>
-                <li><strong>Emergency work:</strong> 2.00% damage rate</li>
-                <li><strong>Standard lead times (1-3 days):</strong> ~1.7% damage rate</li>
-            </ul>
-        </div>
-
-        <hr>
-
-        <h2>Predictive Model Performance</h2>
-
-        <div class="metrics-box">
-            <h3>Model Metrics:</h3>
-            <ul>
-                <li><strong>AUC Score:</strong> 0.666 (Good discrimination)</li>
-                <li><strong>Accuracy:</strong> 94.4% (High overall accuracy)</li>
-                <li><strong>Feature Importance Rankings:</strong>
-                    <ol>
-                        <li>Company Risk Score (45%)</li>
-                        <li>Job Duration (18%)</li>
-                        <li>Lead Time (10%)</li>
-                        <li>Work Type Risk Score (10%)</li>
-                        <li>Day of Week (9%)</li>
-                        <li>Month (8%)</li>
-                    </ol>
-                </li>
-            </ul>
-
-            <h3>Risk Segmentation Validation:</h3>
-            <ul>
-                <li><strong>High Risk (&gt;60 score):</strong> 3.4% actual damage rate</li>
-                <li><strong>Medium Risk (40-60):</strong> 1.4% actual damage rate</li>
-                <li><strong>Low Risk (&lt;40):</strong> 0.0% actual damage rate</li>
-            </ul>
-        </div>
-
-        <hr>
-
         <div class="footer">
-            <p>This framework provides a comprehensive approach to predicting and preventing excavation damages while maintaining operational efficiency.</p>
+            <p><strong>Data Source:</strong> beforeudig_nz_enquiry_with_without_damages.xlsx</p>
+            <p><strong>Analysis Framework:</strong> Multi-factor risk modeling with temporal, geographic, and behavioral pattern analysis</p>
+            <p><strong>Generated:</strong> December 2024 | <strong>Platform:</strong> Python-based statistical analysis</p>
         </div>
     </div>
 </body>
